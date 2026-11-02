@@ -21,7 +21,7 @@
     breaklines   = false,
     numberstyle  = \tiny\color{CtpOverlay1},
     numbersep    = 5pt,
-    escapeinside = {\$\$},
+    escapeinside = {<*}{*>},
     columns      = flexible,
     postbreak    = \usebox\grayarrow,
     showstringspaces = false,
@@ -93,6 +93,10 @@
 %% Do not number tables
 %\captionsetup[table]{labelformat=empty}
 
+%% Pandoc wraps captionless beamer tables in {\def\LTcaptype{none} ...}
+%% and modern longtable steps \LTcaptype at table start, so define the
+%% "none" counter it references.
+\newcounter{none}
 %% Enable strikethrough syntax \st of newer pandoc
 \usepackage{soul}
 
@@ -176,7 +180,7 @@
 %%%%%%%%%%%%%%%%%%%
 
 \usepackage{tikz}
-\usetikzlibrary{tikzmark,shapes,matrix,calc,positioning,fit,graphs,arrows.meta,backgrounds,decorations.pathreplacing,overlay-beamer-styles}
+\usetikzlibrary{quotes,tikzmark,shapes,matrix,calc,positioning,fit,graphs,arrows.meta,backgrounds,decorations.pathreplacing,overlay-beamer-styles}
 
 \usetikzmarklibrary{listings}
 
