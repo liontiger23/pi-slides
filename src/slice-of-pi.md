@@ -66,6 +66,59 @@ title: Slice of pi
 
 :::::
 
+# Context
+
+:::::: columns
+:::: column
+
+## What is context? \centering
+
+. . .
+
+- Initial prompt
+  - System prompt
+  - Tool decsriptions
+  - Skill descriptions
+  - MCP descriptions
+- Messages
+  - User prompts
+  - LLM responses
+  - Tool call results
+  - LLM reasoning
+
+. . .
+
+## Compaction \centering
+
+- Keep initial prompt
+- Keep last 20k messages without reasoning
+- Ask LLM to summarize everything else
+
+::::
+:::: column
+
+. . .
+
+\centering
+
+|                       | pi           | opencode       |
+|-----------------------|--------------|----------------|
+| System prompt         | 2 742 ch     | 8 603 ch       |
+| Tools                 | 4 · 2 956 ch | 12 · 14 033 ch |
+| Initial prompt        | 5 710 ch     | 22 640 ch      |
+| Tokens                | 1 395        | 5 077          |
+| Price                 | ₽0.027       | ₽0.090         |
+
+. . .
+
+- Claude code/Codex prompts are even bigger
+- Increased initial prompt size is better for model providers
+- Initial prompt is what survives compaction
+- Bigger context on average costs more
+
+::::
+::::::
+
 # pi
 
 :::::: columns
@@ -130,6 +183,7 @@ There are many agent harnesses but this one is \color{CtpMauve}{yours}
   - Shows real cost
   - Model provider selection UI
   - Sorting and filtering
+  - Limits context size
 - `turn-timer.ts`
   - Tracks current turn stats
   - Time, cost, inference speed
@@ -167,6 +221,7 @@ There are many agent harnesses but this one is \color{CtpMauve}{yours}
 - `tutor` - Tutor system prompt
   - Does not give you the answer right away
   - Guides with questions
+  - Reduces output size
   - Combines with `pair`
   - [Original source](https://www.patreon.com/SciencePetr/posts/guide-to-turn-ai-153388398)
 
