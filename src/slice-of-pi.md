@@ -53,7 +53,7 @@ title: Slice of pi
 \vspace{1em}
 \centering
 \begin{tikzpicture}[->,every edge/.append style={bend right=-45}]
-  \node (read)  at ( 90:2)   {Prompt/Tool};
+  \node (read)  at ( 90:2)   {Prompt / Tool};
   \node (eval)  at ( 330:2)  {Request};
   \node (print) at ( 210:2)  {Response};
   \graph [use existing nodes] {
@@ -77,7 +77,7 @@ title: Slice of pi
 
 - Initial prompt
   - System prompt
-  - Tool decsriptions
+  - Tool descriptions
   - Skill descriptions
   - MCP descriptions
 - Messages
